@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\API\UserController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\MessageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -23,4 +24,10 @@ Route::middleware('auth:sanctum')->group(function () {
     })->name('me');
 });
 Route::get('/users', [UserController::class, 'index'])
-    ->name('users.index');
+    ->name('users.index'); 
+Route::post("/send-sms", [MessageController::class, 'sendSms'])
+    ->name('send.sms');
+Route::post("/send-whatsapp", [MessageController::class, 'sendMessageWatsApp'])
+    ->name('send.whatsapp'); 
+Route::post('/webhook', [MessageController::class, 'handleWebhook'])    
+    ->name('webhook.handle');
