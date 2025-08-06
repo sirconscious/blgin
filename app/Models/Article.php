@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Article extends Model
 { 
     use SoftDeletes;
-    protected $fillable = ['title', 'content', 'user_id'];
+    protected $fillable = ['title', 'content', 'user_id' , 'level_id'];
 
     public function user()
     {
@@ -18,4 +18,8 @@ class Article extends Model
     {
         return $this->belongsToMany(Slug::class);
     }
-}
+    public function level()
+    {
+        return $this->belongsTo(Level::class);
+    }
+} 

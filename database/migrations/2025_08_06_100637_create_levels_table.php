@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('article_slug', function (Blueprint $table) {
+        Schema::create('levels', function (Blueprint $table) {
             $table->id(); 
-            $table->foreignId('article_id')->constrained()->onDelete('cascade');
-            $table->foreignId('slug_id')->constrained()->onDelete('cascade'); 
-            $table->unique(['article_id', 'slug_id'], 'article_slug_unique'); //
+            $table->string('name')->unique();
+            $table->text('description')->nullable();
             $table->timestamps();
-        });
+        }); 
+        
     }
 
     /**
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('article_slug');
+        Schema::dropIfExists('levels');
     }
 };

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\UserController;
+use App\Http\Controllers\ArticlesController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\MessageController;
 use Illuminate\Http\Request;
@@ -30,4 +31,8 @@ Route::post("/send-sms", [MessageController::class, 'sendSms'])
 Route::post("/send-whatsapp", [MessageController::class, 'sendMessageWatsApp'])
     ->name('send.whatsapp'); 
 Route::post('/webhook', [MessageController::class, 'handleWebhook'])    
-    ->name('webhook.handle');
+    ->name('webhook.handle'); 
+Route::post('/articles', [ArticlesController::class, 'store'])
+    ->name('articles.store'); 
+Route::get('/articles', [ArticlesController::class, 'index'])
+    ->name('articles.index');

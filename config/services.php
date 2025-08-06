@@ -43,5 +43,10 @@ return [
     'sid' => env('TWILIO_SID'),
     'token' => env('TWILIO_TOKEN'),
     'messaging_service_sid' => env('TWILIO_MESSAGING_SERVICE_SID'),
+], 
+'github' => [
+    'client_id' => env('GITHUB_CLIENT_ID'),
+    'client_secret' => env('GITHUB_CLIENT_SECRET'),
+    'redirect' => env('GITHUB_REDIRECT_URI', '/auth/callback'),
 ],
 ];

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id(); 
             $table->string('title'); // Title of the article
             $table->longText('content'); // Content of the article
-            $table->unsignedBigInteger('user_id'); // Author of the article
+            $table->unsignedBigInteger('user_id'); // Author of the article 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade'); // Foreign key constraint 
             $table->softDeletes(); // Soft delete column
             $table->timestamps();
